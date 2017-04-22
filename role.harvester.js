@@ -1,3 +1,5 @@
+var roleManager = require('role.manager');
+
 var roleHarvester = {
 
     /** @param {Creep} creep **/
@@ -23,5 +25,9 @@ var roleHarvester = {
         }
 	}
 };
+
+roleManager.register('harvester', roleHarvester.run, function (spawn) {
+    roleManager.fillRole(spawn, 'harvester', 2);
+});
 
 module.exports = roleHarvester;

@@ -1,3 +1,5 @@
+var roleManager = require('role.manager');
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/
@@ -28,5 +30,9 @@ var roleBuilder = {
 	    }
 	}
 };
+
+roleManager.register('builder', roleBuilder.run, function (spawn) {
+	roleManager.fillRole(spawn, 'builder', 2);
+});
 
 module.exports = roleBuilder;
